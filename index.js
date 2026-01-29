@@ -69,25 +69,62 @@ let score = 55
 // console.log();
 
 
-const fruits = ["apple", "banana", "cherry"];
+// const fruits = ["apple", "banana", "cherry"];
 
-for (let i = 0; i < fruits.length; i++) {
-    console.log("fruit name:", fruits[i]);
+// for (let i = 0; i < fruits.length; i++) {
+//     console.log("fruit name:", fruits[i]);
+// }
+
+
+// while (age < 30) {
+//     console.log("Age is less than 30:", age);
+//     age++;
+// }
+
+// let isLoading = true;
+
+// while (isLoading) {
+//     console.log("this use is loading...");
+//     isLoading = false;
+// }
+
+// fruits.forEach((fru, i) => {
+//     console.log("fruit:", fru, "index:", i);
+// })
+
+const numbers = [1, 2, 3, 4, -5, 6];
+
+let totalValue = numbers.reduce((acc, currVal) => {
+    return acc + currVal
+}, 0); 
+
+// console.log("total value:", totalValue);
+
+let totalNumber2 = 0;
+for (let i = 0; i < numbers.length; i++) {
+    totalNumber2 += numbers[i];
 }
 
-
-while (age < 30) {
-    console.log("Age is less than 30:", age);
-    age++;
+for(let num of numbers){
+    totalNumber2 += num;
 }
 
-let isLoading = true;
+// console.log("total number 2:", totalNumber2);
 
-while (isLoading) {
-    console.log("this use is loading...");
-    isLoading = false;
-}
+const users = [
+  { id: 101, name: "Sara", email: "sara@ex.com", active: true  },
+  { id: 202, name: "Ali",  email: "ali@ex.com",  active: false },
+  { id: 303, name: "Lina", email: "lina@ex.com", active: true  },
+];
 
-fruits.forEach((fru, i) => {
-    console.log("fruit:", fru, "index:", i);
+const filterdData = users.map((user) => {
+    return ({ id: user.id, name: user.name });
 })
+
+const activUsers = users.filter((user) => !user.active )
+// const AliData = users.filter((user) => user.name !== "Ali" )
+const AliData = users.filter(user => user.id == 202 )
+
+const linadata = users.find(user => user.name === "Lina" )
+
+console.log('lina data§', linadata);
