@@ -127,4 +127,68 @@ const AliData = users.filter(user => user.id == 202 )
 
 const linadata = users.find(user => user.name === "Lina" )
 
-console.log('lina data§', linadata);
+// console.log('lina data', linadata);
+
+const items = [
+    { id: 101, name: "Laptop", price: "31", active: true  },
+    { id: 202, name: "Ali",  price: "431",  active: false },
+    { id: 303, name: "Ali", price: "201", active: true  },
+];
+
+
+
+const hasExpensiveItem = items.some((item)=> {
+    return item.price > 200;
+})
+
+const allExpensiveItems = items.every((item)=> {
+    return item.price > 200;
+})
+
+const includesLaptop = items.every((item)=> {
+    return item.name === "Laptop";
+})
+
+
+
+arr = ['apple', 'banana', 'cherry'];
+const includesLaptop2 = arr.includes("apple");
+
+
+
+const ArrayHasAliAndActive = items.filter((item) => item.name === "Ali" && item.active === true);
+const ArrayHasAliOrActive = items.filter((item) => item.name === "Ali" || item.active === true);
+
+// console.log(ArrayHasAliAndActive);
+// console.log(ArrayHasAliOrActive);
+
+const ArrayHasAli = items.filter((item) => item.name === "Ali")
+const activeAli = ArrayHasAli.find((item) => item.active === true);
+
+// const activeAli = items.filter((item) => item.name === "Ali").find((item) => item.active === true);
+
+// const totalPriceoOfAli = items.filter((item) => item.name === "Ali").reduce((acc, currVal) => acc + Number(currVal.price), 0);
+const totalPriceoOfAli = ArrayHasAli.reduce((acc, currVal) => acc + Number(currVal.price), 0);
+
+console.log(totalPriceoOfAli);
+// console.log(activeAli);
+
+
+
+
+
+
+
+// const totalPrice = items.reduce((acc, currVal) => {
+//     return acc + currVal.price;
+// }, 0);
+
+
+// console.log('active users', activUsers);
+
+// console.log('hasExpensiveItem', hasExpensiveItem);
+// console.log('allExpensiveItems', allExpensiveItems);
+// console.log('totalPrice', totalPrice);
+// console.log('includesLaptop', includesLaptop);
+// console.log('includesLaptop2', includesLaptop2);
+
