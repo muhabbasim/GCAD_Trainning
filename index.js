@@ -1,99 +1,3 @@
-// Modern ES6+ Syntax
-// 1.2 Arrow Functions
-
-function add(a, b) {
-    return a + b
-}
-
-// Arrow function 
-const addNumbers = () => {
-    return a + b
-}
-
-const DivieNum = (a , b) => a / b; 
-const SqureNum = a => a * a; 
-
-const lastResult = (l ,f) => {
-    const sum = add(l, f);
-    return sum * 5
-}
-
-
-// Template letrals 
-
-const name = 'Rami'
-const age = 17
-
-// old school 
-const greet = "This is " + name + ", " + 'he is ' + age + " years old"
-
-// new school 
-const greetNewSchool = `This is ${name}, and he's ${age} years old `
-
-// Multi-line strings
-const html = `
-  <div class="user">
-    <h2>${name}</h2>
-    <p>Age: ${age}</p>
-    <p>Next year: ${age + 1}</p>
-  </div>
-`;
-
-
-
-// Destructuring
-
-const colors = ["red", "green", "blue"];
-// const [R, G, B] = colors
-
-const [first, ...others] = colors
-
-const user = {
-    id: 1,
-    name: "Basim Thani",
-    email: "basim.thani@example.com",
-    role: "admin",
-    status: "active",
-    createdAt: "2025-01-12",
-    password: "8435023",
-    comfirm_password: 8435023
-}
-
-const {password, comfirm_password} = user
-
-const registerFunction = () => {
-        if(password == comfirm_password) {
-            console.log('successfull logged in')
-        } else {
-            console.log('invaled cordentials')
-        }
-
-}
-
-// console.log(registerFunction())
-
-
-const student = {
-  id: 1,
-  names: "John",
-  ages: 25,
-  address: {
-    city: "NYC",
-    country: "USA"
-  }
-};
-
-
-const { names, ages, ...otherInfo } = student;
-const { address: { city } } = student; // nested
-
-
-    
-
-
-
-
-
 
 // // Primitives (value types)
 // let str = "Hello";          // string
@@ -287,4 +191,164 @@ const { address: { city } } = student; // nested
 // // console.log('totalPrice', totalPrice);
 // // console.log('includesLaptop', includesLaptop);
 // // console.log('includesLaptop2', includesLaptop2);
+
+
+
+
+// Modern ES6+ Syntax
+// 1.2 Arrow Functions
+
+function add(a, b) {
+    return a + b
+}
+
+// Arrow function 
+const addNumbers = () => {
+    return a + b
+}
+
+const DivieNum = (a , b) => a / b; 
+const SqureNum = a => a * a; 
+
+const lastResult = (l ,f) => {
+    const sum = add(l, f);
+    return sum * 5
+}
+
+
+// Template letrals 
+
+const name = 'Rami'
+const age = 17
+
+// old school 
+const greet = "This is " + name + ", " + 'he is ' + age + " years old"
+
+// new school 
+const greetNewSchool = `This is ${name}, and he's ${age} years old `
+
+// Multi-line strings
+const html = `
+  <div class="user">
+    <h2>${name}</h2>
+    <p>Age: ${age}</p>
+    <p>Next year: ${age + 1}</p>
+  </div>
+`;
+
+
+
+// Destructuring
+
+const colors = ["red", "green", "blue"];
+// const [R, G, B] = colors
+
+const [first, ...others] = colors
+
+const user = {
+    id: 1,
+    name: "Basim Thani",
+    email: "basim.thani@example.com",
+    role: "admin",
+    status: "active",
+    createdAt: "2025-01-12",
+    password: "8435023",
+    comfirm_password: 8435023
+}
+
+const {password, comfirm_password, status, ...theOthers} = user
+
+const registerFunction = () => {
+   try {
+    const useInof = {...theOthers, status: 'inactive'}
+    if(password == comfirm_password) {
+        console.log('successfull logged in')
+    } else {
+        console.log('invaled cordentials')
+    }
+    console.log(useInof)
+  } catch (error) {
+    console.log(error)
+  }
+
+}
+
+// console.log(registerFunction())
+
+
+const student = {
+  id: 1,
+  names: "John",
+  ages: 25,
+  address: {
+    city: "NYC",
+    country: "USA"
+  }
+};
+
+
+const { names, ages, ...otherInfo } = student;
+const { address: { city } } = student; // nested
+
+
+
+// Spread operator (...)
+
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+const combine = [ ...arr1, ...arr2, 3, 6 ]
+
+// console.log(combine)
+
+
+// Promises
+// const myPromise = new Promise((resolve, reject) => {
+//   let a = 2 + 4
+//   if ( a == 2 ) {
+//     resolve('success')
+//   } else {
+//     reject('failed')
+//   }
+// })
+
+// myPromise.then((message) => {
+//   console.log('Basim has fullfilled his promise, ' + message)
+// }).catch((message) => {
+//   console.log('Basim has fialed his promise, ' + message)
+// })
+
+
+
+const recordVidoeOne = new Promise((resolve, reject) => {
+  resolve(user)
+})
+
+const recordVidoeTow = new Promise((resolve, reject) => {
+  resolve('Video 2 recorded')
+})
+
+const recordVidoeThree = new Promise((resolve, reject) => {
+  resolve('Video 3 recorded')
+})
+
+// Promise.all([
+//   recordVidoeOne, 
+//   recordVidoeTow, 
+//   recordVidoeThree
+// ]).then((message) => {
+//   console.log(message)
+// })
+
+// Promise.race([
+//   recordVidoeOne, 
+//   recordVidoeTow, 
+//   recordVidoeThree
+// ]).then((data) => {
+//   console.log(data)
+// })
+
+
+
+
 
