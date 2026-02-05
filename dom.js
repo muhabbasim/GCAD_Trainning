@@ -56,21 +56,91 @@ const parent = document.querySelector('#parent')
 // console.log(parent.children)
 // console.log(parent.children[0])
 // console.log(parent.firstElementChild)
-console.log(parent.lastElementChild)
+// console.log(parent.lastElementChild)
 
 const lastChiled = parent.lastElementChild
 
 
+
+const form = document.querySelector("#form")
+const input = document.querySelector("#email")
+const output = document.querySelector("#output")
+
+// form.addEventListener('submit', (even) => {
+//   even.preventDefault()
+//   if (input.value) {
+//     output.textContent = input.value 
+//     console.log('value submited')
+//   } else {
+//     console.log('no value')
+//   }
+// })
+
+// input.addEventListener('keydown', (event) => {
+//   // console.log(event.target.value)
+// })
 
 section.appendChild(newDiv)
 section.appendChild(btn)
 section.appendChild(glass)
 
 
+// Promise && async await 
+
+const user = {
+  name: 'Omar',
+  email: 'Omar@gmail.com',
+  age: '23',
+}
+
+// one promise
+
+const fetchData = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(user)
+  }, 4000)
+})
+
+form.addEventListener('submit', (even) => {
+  even.preventDefault()
+  try {
+    if(input.value) {
+      fetchData
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err))
+      .finally(() => console.log('We Done'))
+    } else {
+      console.log('input has no value')
+    }
+  } catch (error) {
+    console.log(error)
+  }
+})
 
 
-// // Creating elements
-// document.createElement
-// document.createTextNode
-// 
-// console.log(section)
+function step1() {
+  return Promise.resolve('Step 1 done')
+}
+
+function step2(msg) {
+  return Promise.resolve(msg + ' → Step 2 done')
+}
+
+// promise chaining
+step1().then(step2).then(console.log)
+
+// async await 
+async function runSteps() {
+
+  try {
+    const step1Res = await step1()
+    const step2Res = await step2(step1Res)
+    console.log(step2Res)
+    
+  } catch (error) {
+    console.log('error', error)
+  }
+}
+
+
+runSteps()
