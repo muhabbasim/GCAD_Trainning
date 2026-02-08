@@ -29,3 +29,44 @@
 .hide {
     display: none;
 }
+
+.calculator {
+    margin-top: 200px;
+    display: flex;
+    gap: 10px;
+}
+
+.calculator p {
+    width: 100px;
+    background-color: beige;
+    border: 1px  solid white;
+    height: 40px;
+    margin: 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: chocolate;
+
+}
+
+.calculator button {
+    width: 100px;
+    background-color: #2fa31d;
+    border: 1px solid white;
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
+    font-size: 30px;
+}
+
+.calculator .delete-btn {
+    width: 100px;
+    background-color: #0f190d;
+    border: 1px solid white;
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+}

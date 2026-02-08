@@ -127,7 +127,7 @@ function step2(msg) {
 }
 
 // promise chaining
-step1().then(step2).then(console.log)
+// step1().then(step2).then(console.log)
 
 // async await 
 async function runSteps() {
@@ -142,5 +142,44 @@ async function runSteps() {
   }
 }
 
+// runSteps()
 
-runSteps()
+
+
+
+
+const incBut = document.querySelector(".incremant")
+const decBut = document.querySelector(".decrement")
+const deleteBut = document.querySelector(".delete-btn")
+const calcOutput = document.querySelector(".calc-output")
+const put = document.querySelector(".calc-output")
+
+const localStorageValue = localStorage.getItem('input-number')
+
+
+let inputNumber = Number(localStorageValue)
+calcOutput.textContent = inputNumber
+
+incBut.addEventListener('click', increaseBut)
+decBut.addEventListener("click", decrmentBut) 
+deleteBut.addEventListener("click", deleteBtn) 
+
+function increaseBut() {
+  // inputNumber = inputNumber + 1
+  inputNumber += 1
+  calcOutput.textContent = inputNumber
+  localStorage.setItem('input-number', inputNumber)
+}
+
+function decrmentBut() {
+  inputNumber -= 1
+  calcOutput.textContent = inputNumber
+  localStorage.setItem('input-number', inputNumber)
+  
+}
+
+function deleteBtn() {
+  inputNumber = 0
+  calcOutput.textContent = 0
+  localStorage.setItem('input-number', inputNumber)
+}
